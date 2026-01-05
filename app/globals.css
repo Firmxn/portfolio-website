@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables untuk Aceternity UI */
+:root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: 0 0% 3.9%;
+        --foreground: 0 0% 98%;
+    }
+}
+
+/* Base styles */
+@layer base {
+    body {
+        @apply bg-background text-foreground;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
+
+/* Custom animations untuk Aceternity UI akan ditambahkan di sini */
