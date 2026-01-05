@@ -13,10 +13,19 @@ const config: Config = {
                 foreground: "hsl(var(--foreground))",
             },
             animation: {
-                // Custom animations untuk Aceternity UI akan ditambahkan di sini
+                spotlight: "spotlight 2s ease .75s 1 forwards",
             },
             keyframes: {
-                // Custom keyframes untuk Aceternity UI akan ditambahkan di sini
+                spotlight: {
+                    "0%": {
+                        opacity: "0",
+                        transform: "translate(-72%, -62%) scale(0.5)",
+                    },
+                    "100%": {
+                        opacity: "1",
+                        transform: "translate(-50%,-40%) scale(1)",
+                    },
+                },
             },
         },
     },
