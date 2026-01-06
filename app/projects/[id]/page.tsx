@@ -4,9 +4,9 @@ import { Github, ExternalLink, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 interface ProjectDetailPageProps {
-    params: {
+    params: Promise<{
         id: string;
-    };
+    }>;
 }
 
 export async function generateStaticParams() {
@@ -15,8 +15,9 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
-    const project = projects.find((p) => p.id === params.id);
+export default async function ProjectDetailPage({ params }: ProjectDetailPageProps) {
+    const { id } = await params;
+    const project = projects.find((p) => p.id === id);
 
     if (!project) {
         notFound();
