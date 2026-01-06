@@ -5,7 +5,7 @@ export interface Project {
     id: string;
     title: string;
     description: string;
-    image: string;
+    image?: string; // Optional karena tidak semua project punya gambar
     images?: string[]; // Array gambar untuk preview di modal
     tags: string[];
     features?: string[]; // Fitur-fitur utama project

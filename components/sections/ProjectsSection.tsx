@@ -92,39 +92,45 @@ export function ProjectsSection() {
                                             </div>
 
                                             {/* Project Content */}
-                                            <div className="p-6 space-y-4 flex flex-col flex-1">
-                                                <h3 className="text-xl font-semibold">
-                                                    {project.title}
-                                                </h3>
+                                            <div className="p-6 flex flex-col justify-between flex-1">
+                                                {/* Top Section: Title & Description */}
+                                                <div className="space-y-3">
+                                                    <h3 className="text-xl font-semibold line-clamp-2">
+                                                        {project.title}
+                                                    </h3>
 
-                                                <p className="text-muted-foreground text-sm line-clamp-2 flex-1">
-                                                    {project.description}
-                                                </p>
-
-                                                {/* Tags */}
-                                                <div className="flex flex-wrap gap-2 mt-auto pt-4">
-                                                    {project.tags.slice(0, 3).map((tag) => (
-                                                        <span
-                                                            key={tag}
-                                                            className="px-2 py-1 text-xs bg-secondary text-foreground rounded-md"
-                                                        >
-                                                            {tag}
-                                                        </span>
-                                                    ))}
-                                                    {project.tags.length > 3 && (
-                                                        <span className="px-2 py-1 text-xs bg-secondary text-muted-foreground rounded-md">
-                                                            +{project.tags.length - 3}
-                                                        </span>
-                                                    )}
+                                                    <p className="text-muted-foreground text-sm line-clamp-3">
+                                                        {project.description}
+                                                    </p>
                                                 </div>
 
-                                                {/* Preview Button */}
-                                                <ModalTrigger className="w-full mt-4">
-                                                    <div className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 cursor-pointer">
-                                                        <Eye size={16} />
-                                                        Preview
+                                                {/* Bottom Section: Tags & Preview Button */}
+                                                <div className="space-y-3 pt-4">
+                                                    {/* Tags */}
+                                                    <div className="flex flex-wrap gap-2">
+                                                        {project.tags.slice(0, 3).map((tag) => (
+                                                            <span
+                                                                key={tag}
+                                                                className="px-2 py-1 text-xs bg-secondary text-foreground rounded-md"
+                                                            >
+                                                                {tag}
+                                                            </span>
+                                                        ))}
+                                                        {project.tags.length > 3 && (
+                                                            <span className="px-2 py-1 text-xs bg-secondary text-muted-foreground rounded-md">
+                                                                +{project.tags.length - 3}
+                                                            </span>
+                                                        )}
                                                     </div>
-                                                </ModalTrigger>
+
+                                                    {/* Preview Button */}
+                                                    <ModalTrigger className="w-full">
+                                                        <div className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                                                            <Eye size={16} />
+                                                            Preview
+                                                        </div>
+                                                    </ModalTrigger>
+                                                </div>
                                             </div>
                                         </article>
 
