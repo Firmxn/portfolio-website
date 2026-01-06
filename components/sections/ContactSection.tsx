@@ -1,8 +1,7 @@
 "use client";
 
 import { socialLinks } from "@/data";
-import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Mail, Instagram } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, Instagram, Send } from "lucide-react";
 import Link from "next/link";
 
 // Icon mapping
@@ -15,34 +14,24 @@ const iconMap: Record<string, any> = {
 };
 
 /**
- * Contact Section - Form kontak dan social media links
+ * Contact Section - Clean form and social links
  */
 export function ContactSection() {
     return (
-        <section id="contact" className="py-20 bg-neutral-950">
-            <div className="max-w-4xl mx-auto px-4">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    viewport={{ once: true }}
-                >
-                    <h2 className="text-4xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 mb-4">
+        <section id="contact" className="py-20 px-4 bg-secondary/30">
+            <div className="max-w-4xl mx-auto">
+                {/* Header */}
+                <div className="mb-12 space-y-4 text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
                         Let's Work Together
                     </h2>
-                    <p className="text-center text-neutral-400 max-w-2xl mx-auto mb-16">
+                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                         Have a project in mind? Let's create something amazing together. Feel free to reach out!
                     </p>
-                </motion.div>
+                </div>
 
                 {/* Social Links */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    viewport={{ once: true }}
-                    className="flex justify-center gap-6 mb-12"
-                >
+                <div className="flex justify-center gap-4 mb-12">
                     {socialLinks.map((social) => {
                         const Icon = iconMap[social.icon] || Mail;
                         return (
@@ -50,86 +39,77 @@ export function ContactSection() {
                                 key={social.id}
                                 href={social.url}
                                 target="_blank"
-                                className="group relative"
+                                className="group p-3 bg-white border border-border rounded-lg hover:border-primary hover:shadow-md transition-all duration-200"
+                                title={social.name}
                             >
-                                <div className="p-4 bg-neutral-900 rounded-full border border-neutral-800 group-hover:border-blue-500 transition-all duration-300 group-hover:scale-110">
-                                    <Icon className="w-6 h-6 text-neutral-400 group-hover:text-blue-400 transition-colors" />
-                                </div>
-                                <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                                    {social.name}
-                                </span>
+                                <Icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                             </Link>
                         );
                     })}
-                </motion.div>
+                </div>
 
                 {/* Contact Form */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    viewport={{ once: true }}
-                    className="bg-neutral-900 p-8 rounded-xl border border-neutral-800"
-                >
+                <div className="bg-white border border-border rounded-lg p-8 shadow-sm">
                     <form className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label htmlFor="name" className="block text-sm font-medium text-neutral-300 mb-2">
+                            <div className="space-y-2">
+                                <label htmlFor="name" className="block text-sm font-medium">
                                     Name
                                 </label>
                                 <input
                                     type="text"
                                     id="name"
-                                    className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-blue-500 transition-colors"
+                                    className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
                                     placeholder="Your name"
                                 />
                             </div>
 
-                            <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-neutral-300 mb-2">
+                            <div className="space-y-2">
+                                <label htmlFor="email" className="block text-sm font-medium">
                                     Email
                                 </label>
                                 <input
                                     type="email"
                                     id="email"
-                                    className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-blue-500 transition-colors"
+                                    className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
                                     placeholder="your.email@example.com"
                                 />
                             </div>
                         </div>
 
-                        <div>
-                            <label htmlFor="subject" className="block text-sm font-medium text-neutral-300 mb-2">
+                        <div className="space-y-2">
+                            <label htmlFor="subject" className="block text-sm font-medium">
                                 Subject
                             </label>
                             <input
                                 type="text"
                                 id="subject"
-                                className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-blue-500 transition-colors"
+                                className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
                                 placeholder="What's this about?"
                             />
                         </div>
 
-                        <div>
-                            <label htmlFor="message" className="block text-sm font-medium text-neutral-300 mb-2">
+                        <div className="space-y-2">
+                            <label htmlFor="message" className="block text-sm font-medium">
                                 Message
                             </label>
                             <textarea
                                 id="message"
                                 rows={5}
-                                className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-neutral-100 placeholder-neutral-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                                className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all resize-none"
                                 placeholder="Tell me about your project..."
                             />
                         </div>
 
                         <button
                             type="submit"
-                            className="w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-[1.02]"
+                            className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors duration-200 flex items-center justify-center gap-2"
                         >
+                            <Send className="w-4 h-4" />
                             Send Message
                         </button>
                     </form>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

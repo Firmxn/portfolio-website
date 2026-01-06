@@ -1,53 +1,66 @@
 "use client";
 
-import { Spotlight } from "@/components/ui/spotlight";
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { Button } from "@/components/ui/moving-border";
 import Link from "next/link";
+import { ArrowRight, Mail } from "lucide-react";
 
 /**
- * Hero Section - Landing page dengan spotlight effect
+ * Hero Section - Clean and minimal landing
  */
 export function HeroSection() {
     return (
-        <div className="h-screen w-full flex items-center justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
-            <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
+        <section className="min-h-screen flex items-center justify-center px-4 py-20">
+            <div className="max-w-4xl mx-auto text-center space-y-8 animate-in">
+                {/* Greeting */}
+                <div className="space-y-2">
+                    <p className="text-muted-foreground text-sm md:text-base font-medium tracking-wide uppercase">
+                        Welcome to my portfolio
+                    </p>
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+                        Hi, I'm{" "}
+                        <span className="relative inline-block">
+                            <span className="relative z-10">Your Name</span>
+                            <span className="absolute bottom-2 left-0 w-full h-3 bg-primary/10 -rotate-1"></span>
+                        </span>
+                    </h1>
+                </div>
 
-            <div className="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0">
-                <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
-                    Hi, I'm <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">Your Name</span>
-                </h1>
+                {/* Tagline */}
+                <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                    Full Stack Developer & Creative Problem Solver
+                </p>
 
-                <TextGenerateEffect
-                    words="Full Stack Developer & Creative Problem Solver"
-                    className="text-center text-xl md:text-2xl mt-4 text-neutral-300"
-                />
-
-                <p className="mt-6 font-normal text-base text-neutral-300 max-w-2xl text-center mx-auto">
+                {/* Description */}
+                <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                     I build exceptional digital experiences that combine beautiful design with powerful functionality.
                     Specialized in modern web technologies and passionate about creating solutions that make a difference.
                 </p>
 
-                <div className="flex gap-4 justify-center mt-10">
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
                     <Link href="#projects">
-                        <Button
-                            duration={3000}
-                            className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"
-                        >
+                        <button className="group px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-200 flex items-center gap-2">
                             View My Work
-                        </Button>
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </button>
                     </Link>
 
                     <Link href="#contact">
-                        <button className="px-8 py-3 rounded-lg bg-transparent border border-neutral-600 text-neutral-300 hover:bg-neutral-800 transition-colors">
+                        <button className="px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors duration-200 flex items-center gap-2">
+                            <Mail className="w-4 h-4" />
                             Get In Touch
                         </button>
                     </Link>
                 </div>
-            </div>
 
-            {/* Grid background */}
-            <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-        </div>
+                {/* Scroll Indicator */}
+                <div className="pt-12">
+                    <div className="inline-flex flex-col items-center gap-2 text-muted-foreground">
+                        <span className="text-xs uppercase tracking-wider">Scroll to explore</span>
+                        <div className="w-px h-12 bg-border animate-pulse"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 }

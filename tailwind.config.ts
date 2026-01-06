@@ -9,51 +9,36 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
+                border: "hsl(var(--border))",
+                input: "hsl(var(--input))",
+                ring: "hsl(var(--ring))",
                 background: "hsl(var(--background))",
                 foreground: "hsl(var(--foreground))",
-            },
-            animation: {
-                spotlight: "spotlight 2s ease .75s 1 forwards",
-            },
-            keyframes: {
-                spotlight: {
-                    "0%": {
-                        opacity: "0",
-                        transform: "translate(-72%, -62%) scale(0.5)",
-                    },
-                    "100%": {
-                        opacity: "1",
-                        transform: "translate(-50%,-40%) scale(1)",
-                    },
+                primary: {
+                    DEFAULT: "hsl(var(--primary))",
+                    foreground: "hsl(var(--primary-foreground))",
                 },
+                secondary: {
+                    DEFAULT: "hsl(var(--secondary))",
+                    foreground: "hsl(var(--secondary-foreground))",
+                },
+                muted: {
+                    DEFAULT: "hsl(var(--muted))",
+                    foreground: "hsl(var(--muted-foreground))",
+                },
+                accent: {
+                    DEFAULT: "hsl(var(--accent))",
+                    foreground: "hsl(var(--accent-foreground))",
+                },
+            },
+            borderRadius: {
+                lg: "0.5rem",
+                md: "0.375rem",
+                sm: "0.25rem",
             },
         },
     },
-    plugins: [
-        // Plugin untuk Aceternity UI
-        addVariablesForColors,
-    ],
+    plugins: [],
 };
-
-// Plugin untuk menambahkan CSS variables dari Tailwind colors
-function addVariablesForColors({ addBase, theme }: any) {
-    let allColors = theme("colors");
-    if (!allColors || typeof allColors !== "object") return;
-
-    let newVars = Object.fromEntries(
-        Object.entries(allColors).flatMap(([key, val]) =>
-            typeof val === "object" && val !== null
-                ? Object.entries(val).map(([subKey, subVal]) => [
-                    `--${key}-${subKey}`,
-                    subVal,
-                ])
-                : [[`--${key}`, val]]
-        )
-    );
-
-    addBase({
-        ":root": newVars,
-    });
-}
 
 export default config;
