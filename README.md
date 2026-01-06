@@ -5,11 +5,20 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 ## 🚀 Tech Stack
 
 - **Framework:** Next.js 15 (App Router)
+- **UI Library:** Aceternity UI
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS v3
-- **Animation:** Framer Motion (for Aceternity UI)
+- **Animation:** Framer Motion (Parallax, Scroll-Linked, Gestures)
 - **Icons:** Tabler Icons & Lucide React
 - **Utilities:** clsx & tailwind-merge
+
+## ✨ Key Features
+
+- **Staggered Parallax Grid:** Dynamic project showcase with scroll-velocity-based positioning and gap correction.
+- **Scroll Animations:** Optimized entry animations using `framer-motion` (viewport-triggered).
+- **Animated Modals:** Detailed project views with tilted image carousels and smooth transitions.
+- **Responsive Design:** Mobile-first approach with optimized layouts for all devices.
+- **Clean Architecture:** Separation of concerns between UI components and Data sections.
 
 ## 📁 Project Structure
 

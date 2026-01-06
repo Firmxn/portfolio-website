@@ -57,3 +57,10 @@ update files
 fix bug
 WIP
 ```
+
+### Langkah yang buruk:
+```
+Menjalankan npm run dev tanpa diperintah
+Menjalankan npm run build tanpa diperintah
+Membuka chrome preview tanpa diperintah
+```

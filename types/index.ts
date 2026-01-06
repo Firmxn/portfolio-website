@@ -6,7 +6,9 @@ export interface Project {
     title: string;
     description: string;
     image: string;
+    images?: string[]; // Array gambar untuk preview di modal
     tags: string[];
+    features?: string[]; // Fitur-fitur utama project
     link?: string;
     github?: string;
 }

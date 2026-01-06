@@ -50,4 +50,13 @@ export const projects: Project[] = [
     link: "https://analytics-demo.vercel.app",
     github: "https://github.com/username/social-analytics",
   },
+  {
+    id: "6",
+    title: "Personal Finance Tracker",
+    description: "A comprehensive finance tracking application to manage income, expenses, and savings goals. Features interactive charts, budget planning, and category-wise expense analysis.",
+    image: "/projects/finance.jpg",
+    tags: ["Next.js", "Supabase", "TailwindCSS", "Recharts", "TypeScript"],
+    link: "https://finance-tracker-demo.vercel.app",
+    github: "https://github.com/username/finance-tracker",
+  },
 ];
