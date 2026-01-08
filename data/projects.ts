@@ -8,6 +8,7 @@ export const projects: Project[] = [
     id: "arceffee",
     title: "ARCeffee: Coffee Shop Web App",
     description: "A modern coffee shop web ecosystem built with Headless API First architecture. Features deep menu customization (sugar, ice, size, toppings), smooth checkout flow, real-time order tracking, and barista dashboard with instant notifications.",
+    image: "/projects/arceffe.png",
     tags: ["Next.js", "TypeScript", "Supabase", "TailwindCSS", "Zustand", "TanStack Query", "Shadcn UI"],
     features: [
       "Deep menu customization engine (sugar level, ice, size, toppings)",
@@ -19,7 +20,7 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/Firmxn/coffeshop",
     link: "https://arceffee.vercel.app", // Sesuaikan dengan deployment URL
-  }, 
+  },
   {
     id: "archeus-booking",
     title: "Archeus Booking System",
@@ -43,6 +44,7 @@ export const projects: Project[] = [
     id: "nutrimpasi",
     title: "NutriMPASI: Baby Food Recommendation",
     description: "A fullstack mobile application using Flutter for baby food recommendation. Features include forum discussions, user profiles with photo upload, post creation with rich text and images, real-time posting activity, and smooth navigation.",
+    image: "/projects/nutrimpasi.png",
     tags: ["Flutter", "Dart", "Laravel", "PHP"],
     features: [
       "Forum discussions with rich text and image support",

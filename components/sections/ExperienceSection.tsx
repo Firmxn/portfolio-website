@@ -3,23 +3,27 @@
 import { experiences } from "@/data";
 import { Briefcase } from "lucide-react";
 import { ScrollAnimation, MotionItem } from "@/components/ui/scroll-animation";
+import { GridMarker } from "@/components/ui/grid-marker";
 
 /**
  * Experience Section - Clean timeline layout
  */
 export function ExperienceSection() {
     return (
-        <section id="experience" className="w-full border-b border-[#EAEDF1] bg-white">
-            <div className="max-w-7xl mx-auto border-x border-[#EAEDF1] py-20 px-4">
+        <section id="experience" className="w-full border-b border-border bg-background relative">
+            <div className="max-w-7xl mx-auto border-x border-border py-20 px-4 relative">
+                {/* Grid Joint Markers */}
+                <GridMarker position="bottom-left" />
+                <GridMarker position="bottom-right" />
                 <div className="max-w-6xl mx-auto">
                     {/* Header */}
                     <ScrollAnimation animation="slide-up" width="100%">
                         <div className="mb-12 space-y-4">
                             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                                Work Experience
+                                My Journey
                             </h2>
                             <p className="text-muted-foreground text-lg max-w-2xl">
-                                My professional journey and the amazing teams I've worked with.
+                                A look into my professional growth through internships, where I've had the chance to contribute to meaningful projects.
                             </p>
                         </div>
                     </ScrollAnimation>
@@ -50,7 +54,7 @@ export function ExperienceSection() {
                                                 width="100%"
                                                 className={isLeft ? "flex flex-col items-start md:items-end" : "flex flex-col items-start"}
                                             >
-                                                <div className="bg-white border border-border rounded-lg p-6 hover:shadow-md transition-shadow duration-300 space-y-4 w-full text-left">
+                                                <div className="bg-white dark:bg-transparent border border-border rounded-lg p-6 hover:shadow-md transition-shadow duration-300 space-y-4 w-full text-left">
                                                     {/* Header */}
                                                     <div className={`flex flex-col gap-2 ${isLeft ? "md:flex-row-reverse md:justify-between" : "md:flex-row md:justify-between"}`}>
                                                         <div className="space-y-1">

@@ -5,6 +5,8 @@ import { Github, Linkedin, Twitter, Mail, Instagram, Send } from "lucide-react";
 import Link from "next/link";
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 
+import { GridMarker } from "@/components/ui/grid-marker";
+
 // Icon mapping
 const iconMap: Record<string, any> = {
     github: Github,
@@ -19,8 +21,11 @@ const iconMap: Record<string, any> = {
  */
 export function ContactSection() {
     return (
-        <section id="contact" className="w-full border-b border-[#EAEDF1] bg-white">
-            <div className="max-w-7xl mx-auto border-x border-[#EAEDF1] py-20 px-4">
+        <section id="contact" className="w-full border-b border-border bg-background relative">
+            <div className="max-w-7xl mx-auto border-x border-border py-20 px-4 relative">
+                {/* Grid Joint Markers */}
+                <GridMarker position="bottom-left" />
+                <GridMarker position="bottom-right" />
                 <div className="max-w-6xl mx-auto">
                     {/* Header */}
                     <ScrollAnimation animation="slide-up" width="100%">
@@ -44,7 +49,7 @@ export function ContactSection() {
                                         key={social.id}
                                         href={social.url}
                                         target="_blank"
-                                        className="group p-3 bg-white border border-border rounded-lg hover:border-primary hover:shadow-md transition-all duration-200"
+                                        className="group p-3 bg-white dark:bg-transparent border border-border rounded-lg hover:border-primary hover:shadow-md transition-all duration-200"
                                         title={social.name}
                                     >
                                         <Icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -56,7 +61,7 @@ export function ContactSection() {
 
                     {/* Contact Form */}
                     <ScrollAnimation animation="slide-up" delay={0.2} width="100%">
-                        <div className="bg-white border border-border rounded-lg p-8 shadow-sm">
+                        <div className="bg-white dark:bg-transparent border border-border rounded-lg p-8 shadow-sm">
                             <form className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
@@ -66,7 +71,7 @@ export function ContactSection() {
                                         <input
                                             type="text"
                                             id="name"
-                                            className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
+                                            className="w-full px-4 py-2 bg-transparent border border-border/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                                             placeholder="Your name"
                                         />
                                     </div>
@@ -78,7 +83,7 @@ export function ContactSection() {
                                         <input
                                             type="email"
                                             id="email"
-                                            className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
+                                            className="w-full px-4 py-2 bg-transparent border border-border/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                                             placeholder="your.email@example.com"
                                         />
                                     </div>
@@ -91,7 +96,7 @@ export function ContactSection() {
                                     <input
                                         type="text"
                                         id="subject"
-                                        className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
+                                        className="w-full px-4 py-2 bg-transparent border border-border/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                                         placeholder="What's this about?"
                                     />
                                 </div>
@@ -103,7 +108,7 @@ export function ContactSection() {
                                     <textarea
                                         id="message"
                                         rows={5}
-                                        className="w-full px-4 py-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all resize-none"
+                                        className="w-full px-4 py-2 bg-transparent border border-border/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
                                         placeholder="Tell me about your project..."
                                     />
                                 </div>

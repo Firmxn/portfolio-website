@@ -7,6 +7,8 @@ import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
+import { GridMarker } from "@/components/ui/grid-marker";
+
 /**
  * Hero Section - Clean and minimal landing
  */
@@ -21,19 +23,23 @@ const HeroSectionWithParallax = () => {
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
     return (
-        <section ref={ref} className="w-full border-b border-[#EAEDF1] bg-white overflow-hidden relative">
-            <div className="max-w-7xl mx-auto border-x border-[#EAEDF1]">
+        <section ref={ref} className="w-full border-b border-border bg-background relative">
+            <div className="max-w-7xl mx-auto border-x border-border relative">
+                {/* Grid Joint Markers */}
+                <GridMarker position="bottom-left" />
+                <GridMarker position="bottom-right" />
+
                 {/* Parallax Content Container */}
                 <motion.div
                     style={{ y: yText, opacity }}
-                    className="min-h-screen flex items-center justify-center px-4 pt-32 pb-20"
+                    className="min-h-screen flex items-center justify-center px-4 pt-28 pb-20"
                 >
                     <div className="max-w-4xl mx-auto text-center space-y-8">
                         {/* Greeting */}
                         <ScrollAnimation animation="slide-up" delay={0.1} width="100%">
                             <div className="space-y-2">
                                 <p className="text-muted-foreground text-sm md:text-base font-medium tracking-wide uppercase">
-                                    Welcome to my portfolio
+                                    Software Developer & Tech Enthusiast
                                 </p>
                                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                                     Hi, I'm{" "}
@@ -48,15 +54,16 @@ const HeroSectionWithParallax = () => {
                         {/* Tagline */}
                         <ScrollAnimation animation="slide-up" delay={0.2} width="100%">
                             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                                Full Stack Developer & Creative Problem Solver
+                                Software Developer specializing in Web & Mobile Apps
                             </p>
                         </ScrollAnimation>
 
                         {/* Description */}
                         <ScrollAnimation animation="slide-up" delay={0.3} width="100%">
                             <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                                I build exceptional digital experiences that combine beautiful design with powerful functionality.
-                                Specialized in modern web technologies and passionate about creating solutions that make a difference.
+                                I'm a Software Developer and Informatics Engineering graduate from <span className="text-foreground font-medium">Politeknik Negeri Batam</span>.
+                                With a solid foundation built during my time at <span className="text-foreground font-medium">Diskominfo Kota Batam</span>,
+                                I am dedicated to creating high-performance applications that combine technical excellence with thoughtful design.
                             </p>
                         </ScrollAnimation>
 
@@ -91,11 +98,10 @@ const HeroSectionWithParallax = () => {
                                 <div className="flex flex-col items-center">
                                     <div className="w-px h-12 bg-border mb-2"></div>
                                     <motion.div
-                                        className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px]"
+                                        className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#171717] dark:border-t-indigo-700"
                                         animate={{
                                             y: [0, 5, 0],
                                             scale: [1, 1.2, 1],
-                                            borderTopColor: ["#EAEDF1", "#171717", "#EAEDF1"]
                                         }}
                                         transition={{
                                             duration: 1.5,

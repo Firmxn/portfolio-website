@@ -3,6 +3,7 @@
 import { projects } from "@/data";
 import { Github, ExternalLink, Eye } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { ScrollAnimation, MotionItem } from "@/components/ui/scroll-animation";
 import {
     Modal,
@@ -14,6 +15,8 @@ import {
 } from "@/components/ui/animated-modal";
 import { motion, useScroll, useTransform, useSpring, useVelocity } from "framer-motion";
 import { useRef } from "react";
+
+import { GridMarker } from "@/components/ui/grid-marker";
 
 const ParallaxCard = ({ children, index, progress, className = "" }: { children: React.ReactNode; index: number; progress: any; className?: string }) => {
     const isCenter = index % 3 === 1;
@@ -47,8 +50,11 @@ export function ProjectsSection() {
     });
 
     return (
-        <section ref={containerRef} id="projects" className="w-full border-b border-[#EAEDF1] bg-white">
-            <div className="max-w-7xl mx-auto border-x border-[#EAEDF1] py-20 px-4">
+        <section ref={containerRef} id="projects" className="w-full border-b border-border bg-background relative">
+            <div className="max-w-7xl mx-auto border-x border-border py-20 px-4 relative">
+                {/* Grid Joint Markers */}
+                <GridMarker position="bottom-left" />
+                <GridMarker position="bottom-right" />
                 <div className="max-w-6xl mx-auto">
                     {/* Header */}
                     <ScrollAnimation animation="slide-up" width="100%">
@@ -82,17 +88,31 @@ export function ProjectsSection() {
                                     className=""
                                 >
                                     <Modal>
-                                        <article className="group bg-white border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                                        <article className="group bg-white dark:bg-transparent border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col">
                                             {/* Project Image */}
-                                            <div className="h-48 bg-secondary relative overflow-hidden shrink-0">
-                                                <div className="absolute inset-0 flex items-center justify-center">
-                                                    <span className="text-6xl opacity-20">💼</span>
-                                                </div>
-                                                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300" />
+                                            <div className="h-48 bg-secondary relative overflow-hidden shrink-0 -mt-px">
+                                                {project.image ? (
+                                                    <>
+                                                        <Image
+                                                            src={project.image}
+                                                            alt={project.title}
+                                                            fill
+                                                            className="object-cover"
+                                                        />
+                                                        <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300" />
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <div className="absolute inset-0 flex items-center justify-center">
+                                                            <span className="text-6xl opacity-20">💼</span>
+                                                        </div>
+                                                        <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300" />
+                                                    </>
+                                                )}
                                             </div>
 
                                             {/* Project Content */}
-                                            <div className="p-6 flex flex-col justify-between flex-1">
+                                            <div className="p-6 flex flex-col justify-between flex-1 gap-4">
                                                 {/* Top Section: Title & Description */}
                                                 <div className="space-y-3">
                                                     <h3 className="text-xl font-semibold line-clamp-2">
@@ -105,7 +125,7 @@ export function ProjectsSection() {
                                                 </div>
 
                                                 {/* Bottom Section: Tags & Preview Button */}
-                                                <div className="space-y-3 pt-4">
+                                                <div className="space-y-5 pt-4">
                                                     {/* Tags */}
                                                     <div className="flex flex-wrap gap-2">
                                                         {project.tags.slice(0, 3).map((tag) => (
@@ -139,7 +159,7 @@ export function ProjectsSection() {
                                             <ModalClose />
                                             <ModalContent className="p-0">
                                                 {/* Hero Section dengan Image Carousel */}
-                                                <div className="relative bg-white py-6 md:py-8">
+                                                <div className="relative py-6 md:py-8">
                                                     <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center">
                                                         {project.title}
                                                     </h2>
@@ -199,7 +219,7 @@ export function ProjectsSection() {
                                                                 return (
                                                                     <div
                                                                         key={idx}
-                                                                        className="relative w-32 md:w-40 h-32 md:h-40 flex-shrink-0 bg-white rounded-xl transition-all duration-500 ease-out cursor-pointer border-4 border-white overflow-hidden"
+                                                                        className="relative w-32 md:w-40 h-32 md:h-40 flex-shrink-0 bg-white rounded-xl transition-all duration-500 ease-out cursor-pointe overflow-hidden"
                                                                         style={{
                                                                             transform: `rotate(${rotations[idx]}deg) translateY(${yOffsets[idx]}px)`,
                                                                             zIndex: 5 - Math.abs(idx - 2),

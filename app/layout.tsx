@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
 export const metadata: Metadata = {
     title: "Portfolio | Full Stack Developer",
@@ -16,9 +17,16 @@ export default function RootLayout({
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
             <body suppressHydrationWarning>
-                <Navbar />
-                {children}
-                <Footer />
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    <Navbar />
+                    {children}
+                    <Footer />
+                </ThemeProvider>
             </body>
         </html>
     );

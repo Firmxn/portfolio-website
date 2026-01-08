@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface NavbarProps {
@@ -41,7 +42,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
             >
                 <div
                     className={cn(
-                        "transition-all duration-[1500ms] ease-in-out bg-white/80 backdrop-blur-lg border-[#EAEDF1]",
+                        "transition-all duration-[1500ms] ease-in-out bg-background/80 backdrop-blur-lg border-border",
                         scrolled
                             ? "rounded-full shadow-lg border px-6 py-3"
                             : "border-b"
@@ -49,7 +50,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
                 >
                     <div className={cn(
                         "transition-all duration-[1500ms] ease-in-out",
-                        !scrolled ? "max-w-7xl mx-auto border-x border-[#EAEDF1] px-6 py-4" : "w-full h-full"
+                        !scrolled ? "max-w-7xl mx-auto border-x border-border px-6 py-4" : "w-full h-full border-x border-transparent"
                     )}>
                         {children}
                     </div>
@@ -92,9 +93,18 @@ export const NavbarLogo = () => {
     return (
         <Link
             href="#home"
-            className="text-lg font-bold tracking-tight hover:text-primary transition-colors"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
         >
-            Portfolio
+            <Image
+                src="/site-logo.svg"
+                alt="Logo"
+                width={32}
+                height={32}
+                className="w-8 h-8 object-contain dark:invert"
+            />
+            <span className="text-lg font-bold tracking-tight">
+                Portfolio
+            </span>
         </Link>
     );
 };
@@ -173,7 +183,7 @@ export const MobileNavMenu = ({
                     transition={{ duration: 0.2 }}
                     className="overflow-hidden"
                 >
-                    <div className="pt-4 pb-2 space-y-3 border-t border-[#EAEDF1] mt-3">
+                    <div className="pt-4 pb-2 space-y-3 border-t border-border mt-3">
                         {children}
                     </div>
                 </motion.div>
