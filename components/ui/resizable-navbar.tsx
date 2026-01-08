@@ -27,7 +27,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
     return (
         <motion.nav
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-[1500ms] ease-in-out",
+                "sticky top-0 z-50 transition-all duration-[1500ms] ease-in-out",
                 scrolled ? "py-2" : "py-0",
                 className
             )}
@@ -42,15 +42,15 @@ export const Navbar = ({ children, className }: NavbarProps) => {
             >
                 <div
                     className={cn(
-                        "transition-all duration-[1500ms] ease-in-out bg-background/80 backdrop-blur-lg border-border",
+                        "transition-all duration-[1500ms] ease-in-out border-border",
                         scrolled
-                            ? "rounded-full shadow-lg border px-6 py-3"
+                            ? "bg-background/80 backdrop-blur-lg rounded-full shadow-lg border px-6 py-3"
                             : "border-b"
                     )}
                 >
                     <div className={cn(
                         "transition-all duration-[1500ms] ease-in-out",
-                        !scrolled ? "max-w-7xl mx-auto border-x border-border px-6 py-4" : "w-full h-full border-x border-transparent"
+                        !scrolled ? "max-w-7xl mx-auto border-x border-border py-4 bg-background/80 backdrop-blur-lg" : "w-full h-full border-x border-transparent"
                     )}>
                         {children}
                     </div>
@@ -62,7 +62,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
 
 export const NavBody = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div className="hidden md:flex items-center justify-between w-full">
+        <div className="hidden md:flex items-center justify-between w-full px-6">
             {children}
         </div>
     );
@@ -154,7 +154,7 @@ export const MobileNav = ({ children }: { children: React.ReactNode }) => {
 };
 
 export const MobileNavHeader = ({ children }: { children: React.ReactNode }) => {
-    return <div className="flex items-center justify-between w-full">{children}</div>;
+    return <div className="flex items-center justify-between w-full px-6">{children}</div>;
 };
 
 interface MobileNavToggleProps {

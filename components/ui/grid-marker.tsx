@@ -12,11 +12,13 @@ interface GridMarkerProps {
  */
 export const GridMarker = ({ position, className }: GridMarkerProps) => {
     // Menentukan offset berdasarkan posisi agar center di persimpangan
+    // Wrapper size minimized to w-4 h-4 (16px) to absolutely minimize layout overflow
+    // Offsets adjusted to keep absolute visual position
     const positionClasses = {
-        "top-left": "-top-14 -left-[72px]",
-        "top-right": "-top-14 -right-[72px]",
-        "bottom-left": "-bottom-[65px] -left-[72px]",
-        "bottom-right": "-bottom-[65px] -right-[72px]",
+        "top-left": "top-0 -left-4",
+        "top-right": "top-0 -right-4",
+        "bottom-left": "-bottom-2 -left-4",
+        "bottom-right": "-bottom-2 -right-4",
     };
 
     // Menentukan arah segitiga mengarah ke dalam (kiri/kanan)
@@ -30,7 +32,7 @@ export const GridMarker = ({ position, className }: GridMarkerProps) => {
     return (
         <div
             className={cn(
-                "absolute w-32 h-32 z-10 group/marker cursor-pointer flex items-center justify-center",
+                "absolute w-4 h-4 z-10 group/marker cursor-pointer flex items-center justify-center", // Minimized size
                 positionClasses[position],
                 className
             )}

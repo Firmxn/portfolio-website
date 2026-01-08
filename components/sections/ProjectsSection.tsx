@@ -14,19 +14,30 @@ import {
     ModalClose,
 } from "@/components/ui/animated-modal";
 import { motion, useScroll, useTransform, useSpring, useVelocity } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 import { GridMarker } from "@/components/ui/grid-marker";
 
 const ParallaxCard = ({ children, index, progress, className = "" }: { children: React.ReactNode; index: number; progress: any; className?: string }) => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.matchMedia('(max-width: 767px)').matches);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     const isCenter = index % 3 === 1;
 
-    // Now using shared progress, so all cards in the same column move in sync.
-    // No collision risk.
+    // Disable parallax on mobile for better performance
     const yMove = useTransform(
         progress,
         [0, 1],
-        [
+        isMobile ? [0, 0] : [ // No movement on mobile
             (isCenter ? 60 : -60), // Center starts lower, Outer starts higher
             (isCenter ? -60 : 60)  // Center moves up, Outer moves down
         ]
