@@ -32,7 +32,7 @@ export const GridMarker = ({ position, className }: GridMarkerProps) => {
     return (
         <div
             className={cn(
-                "absolute w-4 h-4 z-10 group/marker cursor-pointer flex items-center justify-center", // Minimized size
+                "hidden md:flex absolute w-4 h-4 z-10 group/marker cursor-pointer items-center justify-center", // Hidden on mobile, Flex on desktop
                 positionClasses[position],
                 className
             )}

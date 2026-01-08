@@ -32,7 +32,7 @@ const HeroSectionWithParallax = () => {
                 {/* Parallax Content Container */}
                 <motion.div
                     style={{ y: yText, opacity }}
-                    className="min-h-screen flex items-center justify-center px-4 pt-28 pb-20"
+                    className="min-h-screen flex items-center justify-center px-4 pt-4 pb-20"
                 >
                     <div className="max-w-4xl mx-auto text-center space-y-8">
                         {/* Greeting */}

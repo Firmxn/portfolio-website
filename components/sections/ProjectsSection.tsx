@@ -173,7 +173,7 @@ export function ProjectsSection() {
                                                     </div>
 
                                                     {/* Preview Button - Absolute positioned with slide-up animation */}
-                                                    <ModalTrigger data-project-id={project.id} data-modal-trigger className="absolute inset-x-0 -bottom-2 opacity-0 md:group-hover:opacity-100 translate-y-2 md:group-hover:translate-y-0 transition-all duration-300 pointer-events-none md:group-hover:pointer-events-auto">
+                                                    <ModalTrigger data-project-id={project.id} data-modal-trigger className="w-full mt-4 md:mt-0 relative md:absolute md:inset-x-0 md:-bottom-2 opacity-100 translate-y-0 md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300 pointer-events-auto md:pointer-events-none md:group-hover:pointer-events-auto">
                                                         <div className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg">
                                                             <Eye size={16} />
                                                             Preview

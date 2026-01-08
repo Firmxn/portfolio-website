@@ -23,9 +23,11 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <Navbar />
-                    {children}
-                    <Footer />
+                    <div className="relative flex flex-col w-full min-h-screen overflow-x-hidden">
+                        <Navbar />
+                        {children}
+                        <Footer />
+                    </div>
                 </ThemeProvider>
             </body>
         </html>
