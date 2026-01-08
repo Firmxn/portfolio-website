@@ -92,7 +92,19 @@ export function ProjectsSection() {
                                         <article
                                             onMouseEnter={() => setHoveredIndex(index)}
                                             onMouseLeave={() => setHoveredIndex(null)}
-                                            className={`group bg-card dark:bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col ${hoveredIndex !== null && hoveredIndex !== index ? "blur-sm scale-[0.98]" : ""
+                                            onClick={(e) => {
+                                                // Only trigger on mobile/tablet (< 768px) using matchMedia
+                                                const isMobile = window.matchMedia('(max-width: 767px)').matches;
+                                                if (isMobile) {
+                                                    // Prevent if clicking on the button itself
+                                                    const target = e.target as HTMLElement;
+                                                    if (!target.closest('[data-modal-trigger]')) {
+                                                        const trigger = e.currentTarget.querySelector(`[data-project-id="${project.id}"]`) as HTMLElement;
+                                                        trigger?.click();
+                                                    }
+                                                }
+                                            }}
+                                            className={`group bg-card dark:bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col cursor-pointer md:cursor-default ${hoveredIndex !== null && hoveredIndex !== index ? "blur-sm scale-[0.98]" : ""
                                                 }`}
                                         >
                                             {/* Project Image */}
@@ -131,7 +143,7 @@ export function ProjectsSection() {
                                                 </div>
 
                                                 {/* Bottom Section: Tags & Preview Button */}
-                                                <div className="space-y-5 pt-4">
+                                                <div className="relative pt-4">
                                                     {/* Tags */}
                                                     <div className="flex flex-wrap gap-2">
                                                         {project.tags.slice(0, 3).map((tag) => (
@@ -149,9 +161,9 @@ export function ProjectsSection() {
                                                         )}
                                                     </div>
 
-                                                    {/* Preview Button */}
-                                                    <ModalTrigger className="w-full">
-                                                        <div className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                                                    {/* Preview Button - Absolute positioned with slide-up animation */}
+                                                    <ModalTrigger data-project-id={project.id} data-modal-trigger className="absolute inset-x-0 -bottom-2 opacity-0 md:group-hover:opacity-100 translate-y-2 md:group-hover:translate-y-0 transition-all duration-300 pointer-events-none md:group-hover:pointer-events-auto">
+                                                        <div className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg">
                                                             <Eye size={16} />
                                                             Preview
                                                         </div>
