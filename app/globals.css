@@ -20,6 +20,13 @@
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
     --radius: 0.5rem;
+    --brand: 245 79% 59%;
+    /* Indigo-600 #4f46e5 */
+    --tertiary: 200 10% 50%;
+    /* Slate-ish Placeholder */
+    /* Custom Semantic Colors */
+    --marker-bg: 0 0% 9%;
+    /* Matches --primary in light mode */
 }
 
 /* Dark Theme Variables */
@@ -40,6 +47,12 @@
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
     --radius: 0.5rem;
+    --brand: 245 79% 59%;
+    /* Indigo-600 #4f46e5 - Tetap sama atau lebih terang di dark mode */
+    --tertiary: 200 10% 50%;
+    /* Custom Semantic Colors */
+    --marker-bg: 245 79% 59%;
+    /* Matches --brand in dark mode */
 }
 
 /* Base styles */

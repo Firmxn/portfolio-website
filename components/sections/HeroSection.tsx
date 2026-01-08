@@ -32,9 +32,9 @@ const HeroSectionWithParallax = () => {
                 {/* Parallax Content Container */}
                 <motion.div
                     style={{ y: yText, opacity }}
-                    className="min-h-screen flex items-center justify-center px-4 pt-4 pb-20"
+                    className="min-h-[100dvh] flex flex-col items-center justify-center px-4 py-24"
                 >
-                    <div className="max-w-4xl mx-auto text-center space-y-8">
+                    <div className="max-w-4xl mx-auto text-center flex flex-col gap-6 md:gap-8 lg:gap-10">
                         {/* Greeting */}
                         <ScrollAnimation animation="slide-up" delay={0.1} width="100%">
                             <div className="space-y-2">
@@ -69,16 +69,16 @@ const HeroSectionWithParallax = () => {
 
                         {/* CTA Buttons */}
                         <ScrollAnimation animation="slide-up" delay={0.4} width="100%">
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-                                <Link href="#projects">
-                                    <button className="group px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-200 flex items-center gap-2">
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-2 w-full sm:w-auto px-4 sm:px-0">
+                                <Link href="#projects" className="w-full sm:w-auto">
+                                    <button className="w-full sm:w-auto group px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-200 flex items-center justify-center gap-2">
                                         View My Work
                                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                     </button>
                                 </Link>
 
-                                <Link href="#contact">
-                                    <button className="px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors duration-200 flex items-center gap-2">
+                                <Link href="#contact" className="w-full sm:w-auto">
+                                    <button className="w-full sm:w-auto px-6 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors duration-200 flex items-center justify-center gap-2">
                                         <Mail className="w-4 h-4" />
                                         Get In Touch
                                     </button>
@@ -91,14 +91,14 @@ const HeroSectionWithParallax = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.8, duration: 0.8 }}
-                            className="pt-12"
+                            className="pt-6 md:pt-12"
                         >
                             <div className="inline-flex flex-col items-center gap-2 text-muted-foreground">
                                 <span className="text-xs uppercase tracking-wider">Scroll to explore</span>
                                 <div className="flex flex-col items-center">
                                     <div className="w-px h-12 bg-border mb-2"></div>
                                     <motion.div
-                                        className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#171717] dark:border-t-indigo-700"
+                                        className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#171717] dark:border-t-[#4f46e5]"
                                         animate={{
                                             y: [0, 5, 0],
                                             scale: [1, 1.2, 1],

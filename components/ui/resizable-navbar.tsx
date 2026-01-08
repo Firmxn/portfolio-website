@@ -27,42 +27,38 @@ export const Navbar = ({ children, className }: NavbarProps) => {
     return (
         <motion.nav
             className={cn(
-                "sticky top-0 z-50 transition-all duration-[1500ms] ease-in-out",
-                scrolled ? "py-2" : "py-0",
-                className
+                "fixed inset-x-0 top-0 z-50 flex w-full justify-center transition-all duration-500 ease-in-out",
+                scrolled ? "pt-4 pb-4" : "pt-0 pb-0"
             )}
         >
             <div
                 className={cn(
-                    "transition-all duration-[1500ms] ease-in-out",
+                    "flex flex-col transition-all duration-500 ease-in-out bg-background/80 backdrop-blur-lg",
                     scrolled
-                        ? "max-w-4xl mx-auto px-4"
-                        : "w-full"
+                        ? "w-full max-w-2xl rounded-full border shadow-lg"
+                        : "w-full border-b border-border"
                 )}
             >
                 <div
                     className={cn(
-                        "transition-all duration-[1500ms] ease-in-out border-border",
+                        "flex w-full items-center justify-between transition-all duration-500",
                         scrolled
-                            ? "bg-background/80 backdrop-blur-lg rounded-full shadow-lg border px-6 py-3"
-                            : "border-b"
+                            ? "px-6 py-3"
+                            : "mx-auto max-w-7xl px-6 py-4 border-x border-transparent lg:border-border"
                     )}
                 >
-                    <div className={cn(
-                        "transition-all duration-[1500ms] ease-in-out",
-                        !scrolled ? "max-w-7xl mx-auto border-x border-border py-4 bg-background/80 backdrop-blur-lg" : "w-full h-full border-x border-transparent"
-                    )}>
-                        {children}
-                    </div>
+                    {children}
                 </div>
             </div>
         </motion.nav>
     );
 };
 
+
+
 export const NavBody = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div className="hidden md:flex items-center justify-between w-full px-6">
+        <div className="hidden md:flex items-center justify-between w-full">
             {children}
         </div>
     );
@@ -150,11 +146,11 @@ export const NavbarButton = ({
 };
 
 export const MobileNav = ({ children }: { children: React.ReactNode }) => {
-    return <div className="md:hidden">{children}</div>;
+    return <div className="md:hidden w-full">{children}</div>;
 };
 
 export const MobileNavHeader = ({ children }: { children: React.ReactNode }) => {
-    return <div className="flex items-center justify-between w-full px-6">{children}</div>;
+    return <div className="flex items-center justify-between w-full">{children}</div>;
 };
 
 interface MobileNavToggleProps {
