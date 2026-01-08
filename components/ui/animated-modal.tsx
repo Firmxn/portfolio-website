@@ -98,7 +98,7 @@ export const ModalBody = ({
                             mass: 0.8
                         }}
                         className={cn(
-                            "relative z-50 flex flex-col bg-white dark:bg-transparent border border-border rounded-2xl overflow-hidden max-h-[90vh] max-w-3xl mx-4 w-full shadow-2xl",
+                            "relative z-50 flex flex-col bg-card dark:bg-card border border-border rounded-2xl overflow-hidden max-h-[90vh] max-w-3xl mx-4 w-full shadow-2xl",
                             className
                         )}
                     >

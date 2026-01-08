@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 
 interface NavbarProps {
     children: React.ReactNode;
@@ -90,18 +90,29 @@ export const NavItems = ({ items }: NavItemsProps) => {
 };
 
 export const NavbarLogo = () => {
+    const { theme, resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    // Prevent hydration mismatch
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    const currentTheme = mounted ? (theme === "system" ? resolvedTheme : theme) : "light";
+    const logoSrc = currentTheme === "dark" ? "/site-logo-white.svg" : "/site-logo.svg";
+
     return (
         <Link
             href="#home"
             className="flex items-center gap-2 hover:opacity-80 transition-opacity"
         >
-            <Image
-                src="/site-logo.svg"
-                alt="Logo"
-                width={32}
-                height={32}
-                className="w-8 h-8 object-contain dark:invert"
-            />
+            <div className="w-8 h-8">
+                <img
+                    src={logoSrc}
+                    alt="Logo"
+                    className="w-full h-full object-contain"
+                />
+            </div>
             <span className="text-lg font-bold tracking-tight">
                 Portfolio
             </span>

@@ -54,7 +54,7 @@ export function ExperienceSection() {
                                                 width="100%"
                                                 className={isLeft ? "flex flex-col items-start md:items-end" : "flex flex-col items-start"}
                                             >
-                                                <div className="bg-white dark:bg-transparent border border-border rounded-lg p-6 hover:shadow-md transition-shadow duration-300 space-y-4 w-full text-left">
+                                                <div className="bg-card dark:bg-card border border-border rounded-lg p-6 hover:shadow-md transition-shadow duration-300 space-y-4 w-full text-left">
                                                     {/* Header */}
                                                     <div className={`flex flex-col gap-2 ${isLeft ? "md:flex-row-reverse md:justify-between" : "md:flex-row md:justify-between"}`}>
                                                         <div className="space-y-1">

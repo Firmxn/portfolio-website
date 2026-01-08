@@ -14,7 +14,7 @@ import {
     ModalClose,
 } from "@/components/ui/animated-modal";
 import { motion, useScroll, useTransform, useSpring, useVelocity } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import { GridMarker } from "@/components/ui/grid-marker";
 
@@ -44,6 +44,7 @@ const ParallaxCard = ({ children, index, progress, className = "" }: { children:
  */
 export function ProjectsSection() {
     const containerRef = useRef(null);
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start end", "end start"],
@@ -88,7 +89,12 @@ export function ProjectsSection() {
                                     className=""
                                 >
                                     <Modal>
-                                        <article className="group bg-white dark:bg-transparent border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                                        <article
+                                            onMouseEnter={() => setHoveredIndex(index)}
+                                            onMouseLeave={() => setHoveredIndex(null)}
+                                            className={`group bg-card dark:bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col ${hoveredIndex !== null && hoveredIndex !== index ? "blur-sm scale-[0.98]" : ""
+                                                }`}
+                                        >
                                             {/* Project Image */}
                                             <div className="h-48 bg-secondary relative overflow-hidden shrink-0 -mt-px">
                                                 {project.image ? (

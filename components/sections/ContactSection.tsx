@@ -49,7 +49,7 @@ export function ContactSection() {
                                         key={social.id}
                                         href={social.url}
                                         target="_blank"
-                                        className="group p-3 bg-white dark:bg-transparent border border-border rounded-lg hover:border-primary hover:shadow-md transition-all duration-200"
+                                        className="group p-3 bg-card dark:bg-card border border-border rounded-lg hover:border-primary hover:shadow-md transition-all duration-200"
                                         title={social.name}
                                     >
                                         <Icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -61,7 +61,7 @@ export function ContactSection() {
 
                     {/* Contact Form */}
                     <ScrollAnimation animation="slide-up" delay={0.2} width="100%">
-                        <div className="bg-white dark:bg-transparent border border-border rounded-lg p-8 shadow-sm">
+                        <div className="bg-card dark:bg-card border border-border rounded-lg p-8 shadow-sm">
                             <form className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
